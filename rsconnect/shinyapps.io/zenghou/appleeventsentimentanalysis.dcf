@@ -1,0 +1,10 @@
+name: appleeventsentimentanalysis
+title:
+username:
+account: zenghou
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 235879
+bundleId: 1090550
+url: https://zenghou.shinyapps.io/appleeventsentimentanalysis/
+when: 1511366051.00089
