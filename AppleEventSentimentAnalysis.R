@@ -169,7 +169,7 @@ rateOfReturn <- cbind(rateOfReturn, minuteSentimentScoreBySentence[,3])
 colnames(rateOfReturn) <- c('time', 'openingPrice', 'r', 'r1', 'r2', 'r3', 'volume', 'sentimentScore', 'event', 'isAboveAverage')
 rateOfReturn <- rateOfReturn[1:114,]
 
-rSquaredValues <- c(0.0181, 0.0827, 0.1282, 0.0717)
+rSquaredValues <- read.table("correlationBySegment.csv", stringsAsFactors = FALSE, sep =",", comment.char='', quote='', header= TRUE)
 
 # plotting
 ggplot(rateOfReturn, aes(x = time)) +
