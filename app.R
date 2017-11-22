@@ -16,6 +16,9 @@ library(wordcloud2)
 library(rsconnect)
 library(RColorBrewer)
 
+rSquaredValues <- read.table("correlationBySegment.csv", stringsAsFactors = FALSE, sep =",", comment.char='', quote='', header= TRUE)
+rateOfReturn <- read.csv("rateOfReturn.csv")
+
 ui <- fluidPage( 
   
   # Application title
@@ -112,7 +115,7 @@ server <- function(input, output){
     }
     
     # retrieve type of rate of return by index (starts from 3rd col)
-    index <- 3 + input$minDelay
+    index <- 4 + input$minDelay
 
     # plotly with gg plot
     # p2 <- ggplot(data, aes(x = time)) +
@@ -178,8 +181,8 @@ server <- function(input, output){
   })
   
   output$rSquare<- renderPrint({
-    data <- rsqr[rsqr$Segment ==input$event,]
-    data[[2 + input$minDelay]]
+    n <- rSquaredValues[rSquaredValues$Segment == input$event,][[input$minDelay + 2]]
+    n
   })
 }
 
